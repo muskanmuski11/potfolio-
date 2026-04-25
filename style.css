@@ -1,0 +1,321 @@
+/* --- CSS Variables & Resets --- */
+:root {
+    /* Soft, elegant minimal color palette */
+    --bg-main: #FAF9F6; /* Soft off-white */
+    --bg-alt: #F2EFE9; /* Beige/Pastel tone for alternate sections */
+    --text-primary: #2C2C2C; /* Soft black for readability */
+    --text-secondary: #5A5A5A; /* Dark gray for secondary text */
+    --accent: #D1C7B7; /* Elegant beige/gold accent */
+    --accent-hover: #B8AC9A; /* Darker accent for hover */
+    --white: #FFFFFF;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif; /* Luxury aesthetic */
+    --font-body: 'Poppins', sans-serif; /* Clean and modern */
+    
+    /* Layout */
+    --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
+    --shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.08); /* Hover shadow */
+    --radius: 12px;
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* --- Reusable Components --- */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.bg-light {
+    background-color: var(--bg-alt);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--text-primary);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Elegant Box Style */
+.box {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: var(--text-primary);
+    color: var(--white);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    border-radius: 30px;
+    transition: var(--transition);
+    border: 2px solid var(--text-primary);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background-color: var(--white);
+    color: var(--text-primary);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border-color: var(--text-primary);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background-color: var(--text-primary);
+    color: var(--white);
+}
+
+/* --- 1. Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom right, var(--bg-main), var(--bg-alt));
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero .title {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.hero .profession {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+    color: var(--text-secondary);
+}
+
+.hero .tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    font-family: var(--font-heading);
+    color: var(--accent-hover);
+    margin-bottom: 40px;
+}
+
+/* --- 2. About Me Section --- */
+.about .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* --- 3. Skills Section --- */
+.gridskills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-card {
+    background-color: var(--white);
+    padding: 20px 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    transition: var(--transition);
+    cursor: default;
+    border-bottom: 4px solid transparent;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-bottom-color: var(--accent);
+}
+
+/* --- 4. Interests Section --- */
+.grid-interests {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.interest-box {
+    background-color: transparent;
+    border: 1px solid var(--accent);
+    padding: 15px 30px;
+    border-radius: 30px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.interest-box:hover {
+    background-color: var(--accent);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* --- 5. Projects Section --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    position: relative;
+    padding: 40px 30px;
+    text-align: left;
+    transition: var(--transition);
+    border-top: 4px solid var(--accent);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--bg-alt);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.project-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* --- 6. Contact Section --- */
+.contact .contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-text {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: var(--white);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--bg-alt);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive Layout --- */
+@media screen and (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .hero .title {
+        font-size: 3rem;
+    }
+    
+    .hero .profession {
+        font-size: 1.2rem;
+    }
+    
+    .hero .tagline {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
